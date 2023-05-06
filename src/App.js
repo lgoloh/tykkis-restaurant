@@ -1,7 +1,8 @@
 import logo from "./logo.svg";
 import "./css/App.css";
-import DropdownMenu from "./components/DropdownMenu";
 import { useRef } from "react";
+import { Header, Main, Footer, MealSection } from "./components/Components";
+import DropdownMenu from "./components/DropdownMenu";
 
 const breakfast = [
 	"Avocado toast",
@@ -43,7 +44,13 @@ function App() {
 	};
 	return (
 		<div>
+			<Header name="Tykki" />
+			<Main adjective="amazing" />
+			<MealSection title="Breakfast" dishes={dishes(breakfast)} />
+			<MealSection title="Lunch" dishes={dishes(lunch)} />
+			<MealSection title="Dinner" dishes={dishes(dinner)} />
 			<DropdownMenu options={dishes(lunch)} />
+			<Footer year={new Date().getFullYear()} />
 			<form onSubmit={submit}>
 				<input ref={title} type="text" placeholder="color title"></input>
 				<input ref={color} type="color"></input>

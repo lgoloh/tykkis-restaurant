@@ -1,0 +1,14 @@
+.title {
+	font-size: large;
+	font-weight: bolder;
+	font-style: italic;
+}
+
+.subtitle {
+	font-size: medium;
+	font-weight: bold;
+}
+
+.header-image {
+	background-size: cover;
+}
