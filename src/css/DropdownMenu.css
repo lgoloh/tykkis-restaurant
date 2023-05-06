@@ -1,0 +1,33 @@
+.menu-item {
+	border-style: solid;
+	border-color: black;
+	padding: 10px;
+	padding-right: 5px;
+	width: 200px;
+	margin: 0px;
+	font-size: small;
+}
+
+.menu-input {
+	font-size: small;
+	width: 200px;
+	color: black;
+	padding: 10px;
+}
+
+.expand-img {
+	height: 30px;
+	width: 30px;
+}
+
+.expand-button {
+	padding: 5px;
+	padding-bottom: 0px;
+	padding-top: 2px;
+}
+
+.input-container {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+}

@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./css/App.css";
-import MealSection from "./components/MealSection";
-import { useState, useEffect, useReducer } from "react";
+import DropdownMenu from "./components/DropdownMenu";
+import { useRef } from "react";
 
 const breakfast = [
 	"Avocado toast",
@@ -32,11 +32,23 @@ const dishes = function (dish_list) {
 };
 
 function App() {
-	const [isChecked, setChecked] = useReducer((isChecked) => !isChecked, false);
+	const title = useRef();
+	const color = useRef();
+
+	const submit = (e) => {
+		e.preventDefault(); //e for event
+		console.log(
+			`Title is ${title.current.value} and color is ${color.current.value}`
+		);
+	};
 	return (
-		<div className="App">
-			<input type="checkbox" value={isChecked} onChange={setChecked} />
-			<label>{isChecked ? "Checked" : "Not Checked"}</label>
+		<div>
+			<DropdownMenu options={dishes(lunch)} />
+			<form onSubmit={submit}>
+				<input ref={title} type="text" placeholder="color title"></input>
+				<input ref={color} type="color"></input>
+				<button>Add</button>
+			</form>
 		</div>
 	);
 }
