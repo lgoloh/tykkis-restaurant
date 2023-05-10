@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import "../css/DropdownMenu.css";
 
 function DropdownItem({ index, title, getSelection }) {
@@ -9,9 +9,13 @@ function DropdownItem({ index, title, getSelection }) {
 	);
 }
 
-export default function DropdownMenu({ options }) {
+export default function DropdownMenu({ options, getSelection }) {
 	const [menuItem, setSelection] = useState("");
 	const [iconSrc, setSrc] = useState("/images/expand_more.png");
+
+	useEffect(() => {
+		getSelection(menuItem);
+	}, [getSelection, menuItem]);
 
 	const menuHandler = () => {
 		const menu = document.getElementById("menu");
