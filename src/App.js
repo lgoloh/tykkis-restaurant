@@ -64,6 +64,7 @@ function App() {
 			<MealSection title="Breakfast" dishes={dishes(breakfast)} />
 			<MealSection title="Lunch" dishes={dishes(lunch)} />
 			<MealSection title="Dinner" dishes={dishes(dinner)} />
+			<h2>Place an order</h2>
 			<DropdownMenu options={dishes(lunch)} />
 			<Footer year={new Date().getFullYear()} />
 			<form onSubmit={submit}>
