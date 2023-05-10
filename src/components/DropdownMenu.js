@@ -10,7 +10,7 @@ function DropdownItem({ index, title, getSelection }) {
 }
 
 export default function DropdownMenu({ options }) {
-	const [menuItem, setSelection] = useState("select dish");
+	const [menuItem, setSelection] = useState("");
 	const [iconSrc, setSrc] = useState("/images/expand_more.png");
 
 	const menuHandler = () => {
@@ -28,9 +28,11 @@ export default function DropdownMenu({ options }) {
 		<div id="menu-top">
 			<div className="input-container">
 				<input
+					value={menuItem}
 					className="menu-input"
 					type="text"
-					placeholder={menuItem}></input>
+					placeholder="select dish..."
+					onChange={(event) => setSelection(event.target.value)}></input>
 				<button className="expand-button" onClick={() => menuHandler()}>
 					<img
 						id="expand"

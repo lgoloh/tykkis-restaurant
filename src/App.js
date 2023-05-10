@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./css/App.css";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Header, Main, Footer, MealSection } from "./components/Components";
 import DropdownMenu from "./components/DropdownMenu";
 
@@ -32,15 +32,30 @@ const dishes = function (dish_list) {
 	}));
 };
 
+//Creating a custom hook. Always starts with "use"
+//Returns an array of object
+const useInput = function (initValue) {
+	const [value, setValue] = useState(initValue);
+	return [
+		{
+			value,
+			onChange: (event) => setValue(event.target.value),
+		},
+		() => setValue(initValue),
+	];
+};
+
+//title and color are objects
 function App() {
-	const title = useRef();
-	const color = useRef();
+	const [title, resetTitle] = useInput("");
+	const [color, resetColor] = useInput("#000000");
 
 	const submit = (e) => {
 		e.preventDefault(); //e for event
-		console.log(
-			`Title is ${title.current.value} and color is ${color.current.value}`
-		);
+		console.log(`Title is ${title.value} and color is ${color.value}`);
+		alert(`${title.value}: ${color.value}`);
+		resetTitle();
+		resetColor();
 	};
 	return (
 		<div>
@@ -52,8 +67,8 @@ function App() {
 			<DropdownMenu options={dishes(lunch)} />
 			<Footer year={new Date().getFullYear()} />
 			<form onSubmit={submit}>
-				<input ref={title} type="text" placeholder="color title"></input>
-				<input ref={color} type="color"></input>
+				<input {...title} type="text" placeholder="color title"></input>
+				<input {...color} type="color"></input>
 				<button>Add</button>
 			</form>
 		</div>
