@@ -37,6 +37,6 @@ export const lunch = [
 export const dinner = [
 	"Black bean soup",
 	"Spicy Tonkotsu Ramen",
-	"Grilld Salmon and Potatoes",
+	"Grilled Salmon and Potatoes",
 	"Mashed Potatoes",
 ];
