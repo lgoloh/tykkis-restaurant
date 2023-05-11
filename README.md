@@ -1,5 +1,6 @@
 # Tykki's Restaurant
-### A react playground
+### A react playground. Simple web app osted on Netlify 
+Link: https://melodious-torte-3850c9.netlify.app/
 
 Showcases:
 - Component development
